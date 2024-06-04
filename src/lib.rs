@@ -21,6 +21,7 @@ impl Plugin for ScrollingCameraPlugin {
         .add_systems(Update, camera_move.run_if(in_state(CameraState::Scrolling)))
         .add_systems(Update, capture_mouse_right_click_for_scrolling.run_if(in_state(CameraState::Idling)))
         .add_systems(Update, control_camera_movment.run_if(in_state(CameraState::Scrolling)))
+        .add_systems(Update, camera_zoom)
         ;
     }
 }

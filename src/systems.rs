@@ -1,3 +1,4 @@
+use bevy::input::mouse::MouseWheel;
 use bevy::prelude::*;
 
 use super::resources::*;
@@ -89,5 +90,19 @@ pub fn control_camera_movment(
             Color::BLACK,
             
         );
+    }
+}
+
+pub fn camera_zoom(
+    mut mouse_wheel_event: EventReader<MouseWheel>,
+    mut query: Query<&mut OrthographicProjection>,
+    time: Res<Time>,
+    scrolling_camera: Res<ScrollingCamera>,
+) {
+    if scrolling_camera.entity == None{return}
+    for event in mouse_wheel_event.read(){
+        let mut projection = query.get_mut(scrolling_camera.entity.unwrap()).unwrap();
+        projection.scale *= 1.0 - event.y * time.delta_seconds();
+        break;
     }
 }
