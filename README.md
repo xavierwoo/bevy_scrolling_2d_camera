@@ -8,7 +8,7 @@ Check the cargo project in _example_ folder to see how it works.
 
 | bevy  | bevy_scrolling_2d_camera |
 |-------|---------------------|
-| 0.13  | 0.1.0                 |
+| 0.13  | 0.1.*                 |
 
 ## Idea of the dragging function
 
