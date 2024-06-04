@@ -2,6 +2,13 @@
 name = "bevy_scrolling_2d_camera"
 version = "0.1.0"
 edition = "2021"
+description = "A simple 2d camera plugin for bevy supporting scrolling with right mouse dragging."
+keywords = ["bevy", "camera", "2d", "scrolling"]
+categories = ["game-development"]
+license = "MIT"
+exclude = [
+    "example/"
+]
 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
