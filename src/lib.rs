@@ -4,7 +4,7 @@ mod resources;
 mod systems;
 mod states;
 
-use resources::*;
+pub use resources::*;
 use systems::*;
 use states::*;
 
