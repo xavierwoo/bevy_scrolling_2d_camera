@@ -19,13 +19,13 @@ pub fn spawn_camera(
         }
     ).id();
     scrolling_camera.entity = Some(entity);
-    println!("Spawn camera");
     let (config, _) = config_store.config_mut::<DefaultGizmoConfigGroup>();
     config.line_width = 10.0;
 }
 
 pub fn camera_move(
     mut query: Query<&mut Transform, With<Camera>>,
+    projection_query: Query<&OrthographicProjection>,
     velocity: Res<CameraVelocity>,
     time: Res<Time>,
     scrolling_camera: Res<ScrollingCamera>,
@@ -34,8 +34,9 @@ pub fn camera_move(
         return;
     }
     if let Some(entity) = scrolling_camera.entity {
+        let project_scale = projection_query.get(entity).unwrap().scale;
         query.get_mut(entity).unwrap().translation 
-            += velocity.v * time.delta_seconds();
+            += velocity.v * time.delta_seconds() * project_scale;
     }
 }
 
