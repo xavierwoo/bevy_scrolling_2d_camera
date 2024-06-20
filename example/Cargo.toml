@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 bevy = { version = "0.13.0"}
-bevy_scrolling_2d_camera = {version = "0.1.0"}
-
+#bevy_scrolling_2d_camera = {version = "0.2.0"}
+bevy_scrolling_2d_camera = {path = "../"}
 [profile.dev.package."*"]
 opt-level = 3

@@ -1,6 +1,6 @@
 [package]
 name = "bevy_scrolling_2d_camera"
-version = "0.1.2"
+version = "0.2.0"
 edition = "2021"
 description = "A simple 2d camera plugin for bevy supporting scrolling with right mouse dragging."
 repository = "https://github.com/xavierwoo/bevy_scrolling_2d_camera.git"

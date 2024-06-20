@@ -8,7 +8,7 @@ Check the cargo project in _example_ folder to see how it works.
 
 | bevy  | bevy_scrolling_2d_camera |
 |-------|---------------------|
-| 0.13  | 0.1.*                 |
+| 0.13  | ^0.1.*                 |
 
 ## Idea of the dragging function
 
@@ -46,7 +46,17 @@ pub struct CapturedMouseRightClickPosition{
 }
 ```
 
-4. A state enum marking the current state of the camera.
+4. A resource confining the zoom scale. (Added from 0.2.0)
+
+```rust
+#[derive(Resource)]
+pub struct ZoomBound{
+    pub max: f32,
+    pub min: f32,
+}
+```
+
+5. A state enum marking the current state of the camera.
 
 ```rust
 #[derive(States, Debug, Clone, Copy, Eq, PartialEq, Hash, Default)]
@@ -57,7 +67,7 @@ pub enum CameraState {
 }
 ```
 
-5. Four updating systems to control the movement of the camera.
+6. Four updating systems to control the movement of the camera.
 
 ```rust
 pub fn camera_move(

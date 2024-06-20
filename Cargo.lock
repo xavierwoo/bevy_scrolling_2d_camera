@@ -847,7 +847,7 @@ dependencies = [
 
 [[package]]
 name = "bevy_scrolling_2d_camera"
-version = "0.1.2"
+version = "0.2.0"
 dependencies = [
  "bevy",
 ]

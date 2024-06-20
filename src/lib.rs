@@ -16,6 +16,7 @@ impl Plugin for ScrollingCameraPlugin {
         .init_resource::<ScrollingCamera>()
         .init_resource::<CameraVelocity>()
         .init_resource::<CapturedMouseRightClickPosition>()
+        .init_resource::<ZoomBound>()
         .init_state::<CameraState>()
         .add_systems(Startup, spawn_camera)
         .add_systems(Update, camera_move.run_if(in_state(CameraState::Scrolling)))

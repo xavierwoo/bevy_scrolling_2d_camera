@@ -36,3 +36,18 @@ impl Default for CapturedMouseRightClickPosition{
         }
     }
 }
+
+#[derive(Resource)]
+pub struct ZoomBound{
+    pub max: f32,
+    pub min: f32,
+}
+
+impl Default for ZoomBound{
+    fn default() -> ZoomBound {
+        ZoomBound{
+            max: 4.0,
+            min: 0.4,
+        }
+    }
+}

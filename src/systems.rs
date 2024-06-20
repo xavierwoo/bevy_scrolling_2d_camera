@@ -99,11 +99,18 @@ pub fn camera_zoom(
     mut query: Query<&mut OrthographicProjection>,
     time: Res<Time>,
     scrolling_camera: Res<ScrollingCamera>,
+    zoom_bound: Res<ZoomBound>,
 ) {
     if scrolling_camera.entity == None{return}
     for event in mouse_wheel_event.read(){
+        let scale_factor = 1.0 - event.y * time.delta_seconds();
+
         let mut projection = query.get_mut(scrolling_camera.entity.unwrap()).unwrap();
-        projection.scale *= 1.0 - event.y * time.delta_seconds();
+        let new_scale = projection.scale * scale_factor;
+        
+        if new_scale > zoom_bound.max || new_scale < zoom_bound.min {return}
+
+        projection.scale = new_scale;
         break;
     }
 }
