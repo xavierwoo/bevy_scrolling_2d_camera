@@ -46,7 +46,7 @@ pub struct ZoomBound{
 impl Default for ZoomBound{
     fn default() -> ZoomBound {
         ZoomBound{
-            max: 4.0,
+            max: 8.0,
             min: 0.4,
         }
     }

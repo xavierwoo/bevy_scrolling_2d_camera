@@ -51,7 +51,7 @@ pub fn capture_mouse_right_click_for_scrolling(
     let window = windows.single();
     click_pos.pos =  window.cursor_position();
 
-    commands.insert_resource(NextState(Some(CameraState::Scrolling)));
+    commands.insert_resource(NextState::Pending(CameraState::Scrolling));
 }
 
 pub fn control_camera_movment(
@@ -66,7 +66,7 @@ pub fn control_camera_movment(
 ){
     if let Some(camera_entity) = scrolling_camera.entity{
         if ! input.pressed(MouseButton::Right){
-            commands.insert_resource(NextState(Some(CameraState::Idling)));
+            commands.insert_resource(NextState::Pending(CameraState::Idling));
             return
         }
         

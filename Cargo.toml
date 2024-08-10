@@ -1,6 +1,6 @@
 [package]
 name = "bevy_scrolling_2d_camera"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 description = "A simple 2d camera plugin for bevy supporting scrolling with right mouse dragging."
 repository = "https://github.com/xavierwoo/bevy_scrolling_2d_camera.git"
@@ -16,7 +16,7 @@ exclude = [
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.13.0"}
+bevy = { version = "0.14.1"}
 
 [profile.dev.package."*"]
 opt-level = 3
